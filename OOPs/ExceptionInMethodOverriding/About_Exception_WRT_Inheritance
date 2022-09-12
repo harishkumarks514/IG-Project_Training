@@ -1,0 +1,5 @@
+As perceived from above 3 examples in order to handle such exceptions, the following conclusions derived are as follows: 
+
+If SuperClass does not declare an exception, then the SubClass can only declare unchecked exceptions, but not the checked exceptions.
+If SuperClass declares an exception, then the SubClass can only declare the same or child exceptions of the exception declared by the SuperClass and any new Runtime Exceptions, just not any new checked exceptions at the same level or higher.
+If SuperClass declares an exception, then the SubClass can declare without exception.

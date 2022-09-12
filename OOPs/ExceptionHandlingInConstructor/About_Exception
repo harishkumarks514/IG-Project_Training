@@ -1,0 +1,88 @@
+Java provides a mechanism to handle exceptions. To learn about exception handling, 
+you can refer to exceptions in java. In this article, we discuss exception handling 
+with constructors when inheritance is involved. In Java, if the constructor of the 
+parent class throws any checked exception, then the child class constructor can throw
+ the same exception or its parent classes. There is no problem if the parent class or 
+ child class constructor throws any unchecked exceptions. The child class constructor 
+ can throw any unchecked exception without looking for a parent class constructor.
+ 
+ 
+ Understanding behavior of constructor calls
+
+Whenever a method that throws some exception is called by another method, 
+then the calling method is responsible for handling that exception
+ (The calling method is the method that contains the actual call; 
+ the called method is the method being called). In case of constructors,
+  the parent class constructor is called by the child class constructor. 
+  It means the child class constructor is responsible for handling the exception thrown by 
+  the parent class constructor. 
+
+Now, for handling an exception there are two ways, one is to catch the exception and another
+ is to throw it. But in the case of the constructor, we can’t handle it using the try-catch mechanism.
+The reason is that we enclose our code which can raise an exception in the try block and then catch it.
+The exception is raised due to a call to parent class constructor, like super().
+ It means if we want to handle the exception using try-catch is depicted in the below illustration
+ 
+ Illustration 1
+
+Child() {
+
+    // Try- catch block 
+    try 
+    {
+        super();
+    } 
+    
+    catch (FileNotFoundException exc) 
+    {
+      // Handling exception(code)
+    }
+}
+
+
+Actually, it is not correct as a call to super must be first statement in the child class constructor 
+(refer super in java  as it can be perceived from below illustration as follows:
+
+Illustration 2
+
+Child() {
+   super(); // either called explicitly or added by the compiler in case of default constructor
+   try {
+       // your code 
+      }
+      catch(FileNotFoundException exc) {
+       // handling code;  
+      }
+  }
+
+and hence the exception can’t be caught (as its not inside the try block) and we can’t 
+handle it using try-catch mechanism. That’s why we need to throw the exception. The below code will
+ compile fine which will appear as follows:
+
+// parent class constructor throws FileNotFoundException 
+Child() throws FileNotFoundException  {
+  super(); // either called explicitly or added by the compiler in case of default constructor
+  try {
+      // your code
+     }
+     catch(FileNotFoundException exc) {
+      // handling code;  
+     }
+ }
+
+Different Use-cases:
+
+Parent class constructor does not throw any checked exception
+Parent class constructor throws a checked exception
+Now let us discuss each case in detail alongside justifying via clean java programs.
+
+Case 1: Parent class constructor does not throw any checked exception
+
+If the parent class constructor does not throw any exception then the child class can throw any 
+exception or throw nothing.
+
+
+
+
+ 
+ 

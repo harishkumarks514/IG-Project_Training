@@ -1,0 +1,54 @@
+ the Stream API is used to process collections of objects.
+  A stream is a sequence of objects that supports various methods which can be pipelined to produce the desired result.
+  
+  The features of Java stream are –
+  ========================================
+  A stream is not a data structure instead it takes input from the Collections, Arrays or I/O channels.
+  Streams don’t change the original data structure, they only provide the result as per the pipelined methods.
+  Each intermediate operation is lazily executed and returns a stream as a result, hence various intermediate operations can be pipelined. 
+  Terminal operations mark the end of the stream and return the result.
+  
+  What are Intermediate Operations in Java 8 Stream. All these operations are in package java.util.stream.Stream.
+  
+  INTERMEDIATE OPERATIONS
+  -----------------------
+  map
+  filter
+  sorted
+  
+  TERMINAL OPERATION
+  ------------------
+  collect
+  forEach
+  reduce
+  
+  Terminal Operations:
+
+collect: The collect method is used to return the result of the intermediate operations performed on the stream.
+
+forEach: The forEach method is used to iterate through every element of the stream.
+
+
+Eager loading or early loading
+In eager loading, the operations are always performed before the action. Let’s take an example of a result of Exams. A student wants to search the result for a specific roll number. What if we are loading all students’ results without any input? It means we are doing eager loading.
+
+While you are dealing with bigger data, we should not use eager loading. Because in eager loading, we are not sure how the processed data will be used. It will always process the entire amount of data at the cost of performance.
+
+Lazy loading or lazy processing
+In lazy processing, the operations are performed after the action. It is processing the data only on demand.
+
+
+How Stream is lazy?
+It is an important characteristic of streams because the operation on the source data is only performed when the terminal operation is initiated. It doesn’t consume the source elements as in eager loading, the source elements are consumed only on demand.
+As you have seen in Stream operations:
+1. The intermediate stream doesn’t produce the result. They create a new Stream
+only.
+2. The terminal operation produces the result.
+
+1. The intermediate operations are lazy in nature and only executed when a result of
+processing is needed.
+2. Intermediate operations don’t produce the result. It creates a new stream.
+3. Intermediate operations are not evaluated until the terminal operations are not
+initiated.
+4. When a terminal operation is initiated, the traversal of streams starts, and the
+associated function is performed one by one.

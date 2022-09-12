@@ -1,0 +1,9 @@
+In simple terms, the mean of Abstraction is to show the necessary things to the user 
+and hide the details. In abstraction, the user will able to access only those parts 
+of information that are necessary for them. This is also known as data abstraction in java.
+
+Abstract class: is a restricted class that cannot be used to create objects (to access it,
+ it must be inherited from another class).
+ 
+ Abstract method: can only be used in an abstract class, and it does not have a body. 
+ The body is provided by the subclass (inherited from).

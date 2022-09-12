@@ -1,0 +1,10 @@
+Aggregation
+ 
+It is a special form of Association where:  
+
+It represents Has-A’s relationship.
+It is a unidirectional association i.e. a one-way relationship. For example, a department can have students but vice versa is not possible and thus unidirectional in nature.
+In Aggregation, both the entries can survive individually which means ending one entity will not affect the other entity.
+
+It represents a Has-A relationship. In the above example: Student Has-A name. Student Has-A ID. Student Has-A Dept. Department Has-A Students as depicted from the below media. 
+ 
