@@ -27,13 +27,13 @@
 			</thead>
 
 			<tbody>
-				<tr th:each="books:${books}">
-					<td th:text="${books.bookName}"></td>
-					<td th:text="${books.bookAuthor}"></td>
-					<td th:text="${books.bookpublication}"></td>
-					<td th:text="${books.bookPrice}"></td>
-					<td th:text="${books.bookName}"></td>
-					<td th:text="${books.availableBooks}"></td>
+				<tr th:each="book:${books}">
+					<td th:text="${book.bookName}"></td>
+					<td th:text="${book.bookAuthor}"></td>
+					<td th:text="${book.bookpublication}"></td>
+					<td th:text="${book.bookPrice}"></td>
+					<td th:text="${book.bookName}"></td>
+					<td th:text="${book.availableBooks}"></td>
 
 				</tr>
 		</table>

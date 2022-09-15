@@ -16,10 +16,9 @@ public class UserController {
 		this.userService = userService;
 	}
 
-//	Handler method to handle to List Users and return mode and view
-	@GetMapping("/usrs")
+//	Handler method to handle to List Users and return model and view
+	@GetMapping("/users")
 	public String listUsers(Model model)
-	
 	{
 		model.addAttribute("users",userService.getAllUsers());
 	return "users";	

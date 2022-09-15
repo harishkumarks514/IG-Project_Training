@@ -7,31 +7,43 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.Table;
 
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+
 @Entity
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "Book_Transaction_Details")
 public class BookTransactionDetails {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long bookId;
-
-	@Column(name = "Book Name", nullable = false)
+	
+	@Lob
+	@Column(name = "Book_Name", nullable = false)
 	private String bookName;
-
+	
+	@Lob
 	@Column(name = "Book_Issued_By", nullable = false)
 	private String issuedBy;
-
+	
+	@Lob
 	@Column(name = "Book_Issued_To", nullable = false)
 	private String issuedTo;
-
+	
+	@Lob
 	@Column(name = "Book_Issued_On", nullable = false)
 	private Date issuedOn;
-
-	@Column(name = "Book _Returned_On", nullable = false)
+	
+	@Lob
+	@Column(name = "Book_Returned_On", nullable = false)
 	private Date returnedOn;
-
+	
+	@Lob
 	@Column(name = "Remarks", nullable = false)
 	private String remark;
 

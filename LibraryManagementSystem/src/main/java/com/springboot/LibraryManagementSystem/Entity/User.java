@@ -6,7 +6,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Table;
 
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+
 @Entity
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "Users_Table")
 public class User {
 
@@ -14,7 +19,7 @@ public class User {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long Id;
 	
-	@Column(name = "User Name", nullable=false )
+	@Column(name = "User_Name", nullable=false )
 	private String userName;
 	
 	@Column(name = "User_mail_Id" , nullable = false )
