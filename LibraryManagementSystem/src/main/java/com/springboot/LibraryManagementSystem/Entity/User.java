@@ -1,23 +1,22 @@
 package com.springboot.LibraryManagementSystem.Entity;
 
 import javax.persistence.Column;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Table;
 
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 
 @Entity
-@NoArgsConstructor
-@AllArgsConstructor
+//@NoArgsConstructor
+//@AllArgsConstructor
 @Table(name = "Users_Table")
 public class User {
 
 	@javax.persistence.Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long Id;
+	private long userId;
 	
 	@Column(name = "User_Name", nullable=false )
 	private String userName;
@@ -46,11 +45,11 @@ public class User {
 	}
 
 	public long getId() {
-		return Id;
+		return userId;
 	}
 
 	public void setId(long id) {
-		Id = id;
+		userId = id;
 	}
 
 	public String getName() {

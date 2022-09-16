@@ -1,19 +1,29 @@
 package com.springboot.LibraryManagementSystem.Entity;
 
+import java.util.Date;
+
+
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import com.fasterxml.jackson.annotation.JsonFormat;
+
+//import lombok.AllArgsConstructor;
+//import lombok.Data;
+//import lombok.NoArgsConstructor;
 
 @Entity
-@NoArgsConstructor
-@AllArgsConstructor
+//@NoArgsConstructor
+//@AllArgsConstructor
 @Table(name = "Book")
 public class Book {
 
@@ -37,20 +47,45 @@ public class Book {
 	@Column(name = "Books_Available", nullable = false)
 	private int availableBooks;
 
+	
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "createdBy",referencedColumnName = "userId")
+	private User createdBy; 
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/mm/yyyy")
+	private Date createdOn;
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "modifiedBy")
+	private User modifiedBy;
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/mm/yyyy")
+	private Date modifiedOn;
+	private int activeFlag;
+	
+	 
+
+	 
+
 	public Book() {
-
-	}
-
-	public Book(long bookId, String bookName, String bookAuthor, String bookpublication, int bookPrice,
-			int availableBooks) {
 		super();
-
+		// TODO Auto-generated constructor stub
+	}
+ 
+	public Book(long bookId, String bookName, String bookAuthor, String bookpublication, int bookPrice,
+			int availableBooks, User createdBy, Date createdOn, User modifiedBy, Date modifiedOn, int activeFlag) {
+		super();
+		this.bookId = bookId;
 		this.bookName = bookName;
 		this.bookAuthor = bookAuthor;
 		this.bookpublication = bookpublication;
 		this.bookPrice = bookPrice;
 		this.availableBooks = availableBooks;
+		this.createdBy = createdBy;
+		this.createdOn = createdOn;
+		this.modifiedBy = modifiedBy;
+		this.modifiedOn = modifiedOn;
+		this.activeFlag = activeFlag;
 	}
+
+
 
 	public long getBookId() {
 		return bookId;
@@ -99,5 +134,47 @@ public class Book {
 	public void setAvailableBooks(int availableBooks) {
 		this.availableBooks = availableBooks;
 	}
+
+	public User getCreatedBy() {
+		return createdBy;
+	}
+
+	public void setCreatedBy(User createdBy) {
+		this.createdBy = createdBy;
+	}
+
+	public Date getCreatedOn() {
+		return createdOn;
+	}
+
+	public void setCreatedOn(Date createdOn) {
+		this.createdOn = createdOn;
+	}
+
+	public User getModifiedBy() {
+		return modifiedBy;
+	}
+
+	public void setModifiedBy(User modifiedBy) {
+		this.modifiedBy = modifiedBy;
+	}
+
+	public Date getModifiedOn() {
+		return modifiedOn;
+	}
+
+	public void setModifiedOn(Date modifiedOn) {
+		this.modifiedOn = modifiedOn;
+	}
+
+	public int getActiveFlag() {
+		return activeFlag;
+	}
+
+	public void setActiveFlag(int activeFlag) {
+		this.activeFlag = activeFlag;
+	}
+	
+	
 
 }
