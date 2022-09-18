@@ -1,0 +1,100 @@
+1.localhost:8081/save-book
+--------------------------------
+input: {
+	"name"   : "Java",
+	"author" : "Mohin",
+	"topic"  : "Learning",
+	"issued" : false,
+	"metaData" : "harish"
+}
+
+Result:  Book Added Successfully
+
+2. localhost:8081/getBookByAuthor/Mohin
+
+output: [
+    {
+        "name": "Java",
+        "author": "Mohin",
+        "topic": "Learning",
+        "issued": false,
+        "metaData": "harish",
+        "id": 1
+    }
+]
+
+
+3.localhost:8081/getBookByTopic/Learning
+
+[
+    {
+        "name": "Java",
+        "author": "Mohin",
+        "topic": "Learning",
+        "issued": false,
+        "metaData": "harish",
+        "id": 1
+    }
+]
+
+4.localhost:8081/saveallbooks
+
+[
+    {
+        "name": "DBMS",
+        "author": "RAJ",
+        "topic": "DB LEARN",
+        "issued": false,
+        "metaData": ""
+    },
+    
+    {
+        "name": "C++",
+        "author": "Arjun",
+        "topic": "LEARNC++",
+        "issued": false,
+        "metaData": ""
+    }
+    
+]
+
+5.http://localhost:8081/getBookForUser/java
+
+{
+    "name": "Java",
+    "author": "Mohin",
+    "topic": "Learning",
+    "issued": false,
+    "metaData": "harish",
+    "id": 1
+}
+
+6.localhost:8081/updateBook
+
+Inpput : {
+    "name": "Java",
+    "author": "Moin",
+    "topic": "Learning",
+    "issued": false,
+    "metaData": "harish"
+    
+}
+
+
+Output: {
+    "name": "Java",
+    "author": "Moin",
+    "topic": "Learning",
+    "issued": false,
+    "metaData": "harish"
+    
+}
+
+7.http://localhost:8081/deleteBookByName/Java
+
+Output: Book removed successfully
+
+
+
+
+
