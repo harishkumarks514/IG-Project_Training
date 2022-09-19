@@ -8,21 +8,17 @@ import org.springframework.stereotype.Repository;
 import com.pack.librarymanagementsystem.entity.Book;
 
 @Repository
-public interface BookRepository  extends JpaRepository<Book, Long >{
+public interface BookRepository extends JpaRepository<Book, Long> {
 
-	List<Book> findByTopicAndissued(String author, boolean isIssued);
+	
+	
+	List<Book> findByTopicAndIssued(String author, boolean isIssued);
 
-	List<Book> findByAuthorAndissued(String author, boolean isIssued);
+	List<Book> findByAuthorAndIssued(String author, boolean isIssued);
 
-	Book deleteByName(String name);
+	int deleteByName(String name);
 
-	Book findByNameAndIsIssued(String name, boolean isIssued);
+	Book findByNameAndIssued(String name, boolean isIssued);
 
 	Book findByName(String name);
-
-
-	
-
-	 
-	
 }

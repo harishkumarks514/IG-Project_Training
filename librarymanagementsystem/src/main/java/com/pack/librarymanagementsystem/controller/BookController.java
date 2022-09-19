@@ -20,39 +20,38 @@ import com.pack.librarymanagementsystem.service.BookService;
 
 @RestController
 public class BookController {
-
-	private static final Logger log = LoggerFactory.getLogger(BookController.class);  
-
+	Logger log = LoggerFactory.getLogger(BookController.class); 
+	
 	@Autowired
 	private BookService bookService;
 
 	@PostMapping("/save-book")
 	@ResponseStatus(code = HttpStatus.CREATED)
-	public String saveBook(@PathVariable String name, @RequestBody Book book) {
+	public String saveBook(  @RequestBody Book book) {
 		log.info("Adding book through json in bookController.");
 		bookService.saveBook(book);
 		return "Book Added Successfully";
 	}
 
-	@GetMapping("/getBookByAuthor")
+	@GetMapping("/getBookByAuthor/{author}")
 	public List<Book> searchBooksByAuthor(@PathVariable String author) {
 		log.info("Fetching the Books Available based on the author.");
 		return bookService.searchBooksByAuthor(author);
 	}
 
-	@GetMapping("/getBookByTopic")
+	@GetMapping("/getBookByTopic/{topic}")
 	public List<Book> searchBooksByTopic(@PathVariable String topic) {
 		log.info("Fetching All Books Available in bookController.");
 		return bookService.searchBooksByTopic(topic);
 	}
 
-//	@GetMapping("/getBookByTopic")
-//	public List<Book> saveBulkBook( @RequestBody Book books) {
-//		log.info("Save All Books.");
-//		return bookService.saveBulkBook(books);
-//	}
+	@PostMapping("/saveallbooks")
+	public String saveBulkBook( @RequestBody List<Book> books) {
+		log.info("Save All Books.");
+		return bookService.saveBulkBook(books);
+	}
 
-	@GetMapping("/getBookForUser")
+	@GetMapping("/getBookForUser/{name}")
 	public Book getBooksForUser(@PathVariable String name) {
 		log.info("Fetching All Books Available in bookController.");
 		return bookService.getBookForUser(name);
@@ -68,7 +67,7 @@ public class BookController {
 	@DeleteMapping("/deleteBookByName/{name}")
 	public String deleteBook(@PathVariable String name) {
 		log.info("Deleting book details in bookController.");
-		bookService.deleteByBookName(name);
-		return "Book removed successfully";
+		return bookService.deleteByBookName(name);
 	}
+	
 }
