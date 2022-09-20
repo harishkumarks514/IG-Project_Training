@@ -19,9 +19,9 @@ public interface BookService {
 
 	public List<Book> searchBooksByAuthor(String author);
 
-	public String deleteByBookName(String bookName);
-
 	public Book getBookForUser(String name);
 
+	public String deleteByBookName(String bookName);
+	
 	public Book updateBookDetails(Book book);
 }

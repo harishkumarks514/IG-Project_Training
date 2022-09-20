@@ -6,8 +6,8 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
-@EnableJpaRepositories
-@ComponentScan(basePackages =  "com.pack.librarymanagementsystem.*")
+//@EnableJpaRepositories
+//@ComponentScan(basePackages =  "com.pack.librarymanagementsystem.*")
 public class LibrarymanagementsystemApplication {
 
 	public static void main(String[] args) {
