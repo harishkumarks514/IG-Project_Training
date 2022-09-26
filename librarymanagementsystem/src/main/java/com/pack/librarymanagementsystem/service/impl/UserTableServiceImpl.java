@@ -56,7 +56,7 @@ public class UserTableServiceImpl implements UserTableService{
 		Users userDetails =userRepository.findById(userTable.getUserId()).orElse(null);
 		userDetails.setUserName(userTable.getUserName());
 		userDetails.setMailId(userTable.getMailId());
-		userDetails.setMobilleNo(userTable.getMobilleNo());
+		userDetails.setMobileNo(userTable.getMobileNo());
 		userDetails.setUserAddress(userTable.getUserAddress());
 		return userRepository.save(userDetails);
 	}

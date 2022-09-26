@@ -37,4 +37,6 @@ public class Book {
 
 	@Column(name = "metaData", nullable = false)
 	private String metaData;
+	
+	private int activeFlag;
 }
